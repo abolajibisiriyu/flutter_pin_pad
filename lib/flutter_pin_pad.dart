@@ -1,7 +1,16 @@
 library flutter_pin_pad;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:flutter/material.dart';
+
+/// Flutter Pin Pad.
+class PinPad extends StatefulWidget {
+  @override
+  _PinPadState createState() => _PinPadState();
+}
+
+class _PinPadState extends State<PinPad> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
 }
