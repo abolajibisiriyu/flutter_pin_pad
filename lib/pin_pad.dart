@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_pin_pad/pin_pad_key.dart';
 
-class PinPad extends StatelessWidget {
+class PinPadKeysGrid extends StatelessWidget {
   final Function(PinPadKeyModel) handleKeyPressed;
 
-  const PinPad({Key key, this.handleKeyPressed}) : super(key: key);
+  const PinPadKeysGrid({Key key, this.handleKeyPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
