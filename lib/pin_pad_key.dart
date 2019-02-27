@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PinPadKey extends StatelessWidget {
-  final _PinPadKey pinPadKey;
+  final PinPadKeyModel pinPadKey;
   final double fontSize;
   final double iconSize;
-  final Function(_PinPadKey) onPressed;
+  final Function(PinPadKeyModel) onPressed;
 
   const PinPadKey({
     Key key,
@@ -44,12 +44,13 @@ class PinPadKey extends StatelessWidget {
   }
 }
 
-class _PinPadKey {
+class PinPadKeyModel {
   KeyType type;
   String text;
   IconData icon;
+  KeyAction action;
 
-  _PinPadKey({this.type, this.icon, this.text});
+  PinPadKeyModel({this.type, this.icon, this.text, this.action});
 }
 
 enum KeyType { TEXT, ICON }
