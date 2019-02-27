@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Pin Pad Demo'),
     );
   }
 }
@@ -30,10 +30,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Container(
+        color: Colors.white,
+        padding: EdgeInsets.symmetric(vertical: 20),
         child: PinPad(
           onSubmit: (String pin) {
             print("PIN: $pin");
