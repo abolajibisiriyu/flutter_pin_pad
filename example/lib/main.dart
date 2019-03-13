@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_pin_pad/flutter_pin_pad.dart';
+import 'package:flutter_pin_pad/pin_pad_theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,15 +35,29 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(
-        color: Colors.white,
-        padding: EdgeInsets.symmetric(vertical: 20),
-        child: PinPad(
-          onSubmit: (String pin) {
-            print("PIN: $pin");
-          },
-          pinLength: 4,
-        ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Container(),
+          ),
+          Container(
+            height: 400,
+            color: Colors.black,
+            padding: EdgeInsets.symmetric(vertical: 20),
+            child: PinPad(
+              showPinProgressIndicator: false,
+              pinPadThemeData: PinPadThemeData(
+                clearTextStyle:
+                    TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                backspaceIcon: Icon(Icons.arrow_back),
+              ),
+              onSubmit: (String pin) {
+                print("PIN: $pin");
+              },
+              pinLength: 6,
+            ),
+          ),
+        ],
       ),
     );
   }
