@@ -18,6 +18,8 @@ class PinPadThemeData {
   bool showClear;
   IndicatorTheme indicatorTheme;
   Icon backspaceIcon;
+  Color keyBackgroundColor;
+  bool disableKeyFeedback;
 
   PinPadThemeData({
     this.numberTextStyle:
@@ -26,6 +28,8 @@ class PinPadThemeData {
         const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
     this.showClear: true,
     this.indicatorTheme: const IndicatorTheme(),
+    this.keyBackgroundColor: Colors.white,
+    this.disableKeyFeedback: false,
     this.backspaceIcon,
   });
 }

@@ -16,13 +16,15 @@ class PinPadKey extends StatelessWidget {
     final pinPadThemeData = PinPadTheme.of(context).pinPadThemeData;
     return Container(
       child: Material(
+        color: pinPadThemeData.keyBackgroundColor,
         child: InkWell(
-          splashColor: Colors.red,
           onTap: () {
             onPressed(pinPadKey);
           },
           child: Container(
-            color: Colors.white,
+            color: pinPadThemeData.disableKeyFeedback
+                ? pinPadThemeData.keyBackgroundColor
+                : null,
             alignment: Alignment.center,
             child: pinPadKey.type == KeyType.ICON
                 ? pinPadThemeData.backspaceIcon != null

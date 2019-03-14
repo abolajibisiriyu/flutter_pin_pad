@@ -11,6 +11,7 @@ import 'package:flutter_pin_pad/pin_pad_theme.dart';
 class PinPad extends StatefulWidget {
   final int pinLength;
   final Function(String) onSubmit;
+  final Function(String) onChange;
   final PinPadThemeData pinPadThemeData;
   final bool showPinProgressIndicator;
 
@@ -20,6 +21,7 @@ class PinPad extends StatefulWidget {
     this.onSubmit,
     this.pinPadThemeData,
     this.showPinProgressIndicator: true,
+    this.onChange,
   }) : super(key: key);
   @override
   _PinPadState createState() => _PinPadState();
@@ -35,9 +37,6 @@ class _PinPadState extends State<PinPad> {
           pin += pinPadKey.text;
         });
       }
-      if (pin.length == widget.pinLength) {
-        widget.onSubmit(pin);
-      }
     }
     if (pinPadKey.action == KeyAction.BACKSPACE) {
       if (pin.length != 0) {
@@ -51,6 +50,10 @@ class _PinPadState extends State<PinPad> {
       setState(() {
         pin = "";
       });
+    }
+    widget.onChange(pin);
+    if (pin.length == widget.pinLength) {
+      widget.onSubmit(pin);
     }
   }
 

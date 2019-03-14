@@ -42,7 +42,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Container(
             height: 400,
-            color: Colors.black,
             padding: EdgeInsets.symmetric(vertical: 20),
             child: PinPad(
               showPinProgressIndicator: false,
@@ -50,7 +49,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 clearTextStyle:
                     TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 backspaceIcon: Icon(Icons.arrow_back),
+                showClear: false,
               ),
+              onChange: (String text) {
+                print("ON PIN CHANGE: $text");
+              },
               onSubmit: (String pin) {
                 print("PIN: $pin");
               },
