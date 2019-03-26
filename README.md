@@ -67,4 +67,4 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ## Getting Started
 
-See the `example` directory for a complete sample app using Firebase Core.
+See the `example` directory for a complete sample app using Flutter Pin Pad.
