@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_pin_pad/pin_pad_theme.dart';
+
 class PinPadIndicator extends StatelessWidget {
   final int currentPinLength;
   final int totalPinLength;
@@ -29,33 +31,28 @@ class PinPadIndicator extends StatelessWidget {
 }
 
 class _IndicatorCircle extends StatelessWidget {
-  final Color fillColor;
-  final Color activeFillColor;
-  final Color strokeColor;
   final bool active;
-  final double height;
-  final double width;
 
   const _IndicatorCircle({
     Key key,
-    this.fillColor: Colors.white,
-    this.activeFillColor: const Color(0xFF67C462),
-    this.strokeColor: const Color(0xFF67C462),
     this.active: false,
-    this.height: 16,
-    this.width: 16,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pinPadThemeData = PinPadTheme.of(context).pinPadThemeData;
     return AnimatedContainer(
       margin: EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
-          border: Border.all(color: strokeColor, width: 2),
-          color: active ? activeFillColor : fillColor,
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-      height: height,
-      width: width,
+        border: Border.all(
+            color: pinPadThemeData.indicatorTheme.strokeColor, width: 2),
+        color: active
+            ? pinPadThemeData.indicatorTheme.activeFillColor
+            : pinPadThemeData.indicatorTheme.fillColor,
+        borderRadius: pinPadThemeData.indicatorTheme.borderRadius,
+      ),
+      height: pinPadThemeData.indicatorTheme.height,
+      width: pinPadThemeData.indicatorTheme.width,
       curve: Curves.easeInOut,
       duration: Duration(milliseconds: 100),
     );

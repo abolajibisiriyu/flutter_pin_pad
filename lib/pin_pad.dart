@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_pin_pad/pin_pad_key.dart';
+import 'package:flutter_pin_pad/pin_pad_theme.dart';
 
 class PinPadKeysGrid extends StatelessWidget {
   final Function(PinPadKeyModel) handleKeyPressed;
@@ -9,6 +10,7 @@ class PinPadKeysGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pinPadThemeData = PinPadTheme.of(context).pinPadThemeData;
     return Container(
       child: Column(
         children: <Widget>[
@@ -128,14 +130,16 @@ class PinPadKeysGrid extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Expanded(
-                  child: PinPadKey(
-                    pinPadKey: PinPadKeyModel(
-                      type: KeyType.TEXT,
-                      action: KeyAction.CLEAR,
-                      text: 'CLEAR',
+                  child: Visibility(
+                    visible: pinPadThemeData.showClear,
+                    child: PinPadKey(
+                      pinPadKey: PinPadKeyModel(
+                        type: KeyType.TEXT,
+                        action: KeyAction.CLEAR,
+                        text: 'CLEAR',
+                      ),
+                      onPressed: handleKeyPressed,
                     ),
-                    fontSize: 14,
-                    onPressed: handleKeyPressed,
                   ),
                 ),
                 Expanded(
